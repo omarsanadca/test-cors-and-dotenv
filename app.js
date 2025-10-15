@@ -9,6 +9,10 @@ app.use(express.json());
 
 app.use(customCorsMiddleware);
 
+app.use("/", (req, res) => {
+  res.json({ message: "Server is working!" });
+});
+
 app.get("/courses", (req, res, next) => {
   res.json({ message: "GET all courses" });
 });
