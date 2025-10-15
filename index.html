@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="fetch-btn">Fetch</button>
+  <script>
+    const fetchButton = document.getElementById("fetch-btn");
+
+    fetchButton.addEventListener("click", () => {
+      fetch("http://localhost:4000/courses",
+        {
+          method: "PUT",
+          headers: {
+            "Authorization": "Bearer blablabla",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            title: "node js",
+            price: 123
+          })
+        }
+      )
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+    })
+  </script>
+</body>
+
+</html>
