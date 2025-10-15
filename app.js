@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(customCorsMiddleware);
 
 app.use("/", (req, res) => {
-  res.json({ message: "Server is working!" });
+  res.json({ message: "Server is working!", env: process.env.NODE_ENV });
 });
 
 app.get("/courses", (req, res, next) => {
